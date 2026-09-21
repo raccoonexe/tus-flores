@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>florecita para tu ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('cosita.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden; 
+        }
+
+        .card-container {
+            background-color: rgba(255, 255, 255, 0.92);
+            width: 100%;
+            max-width: 420px;
+            padding: 30px 20px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .top-text {
+            color: #e7609f;
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .image-box {
+            background: #f2b3ef;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .image-box img {
+            width: 100%;
+            max-height: 280px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .bottom-text {
+            color: #e7609f;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .heart-icon {
+            color: #f10f0f;
+            font-size: 1.3rem;
+            margin: 10px 0;
+        }
+
+        
+        .falling {
+            position: absolute;
+            top: -20px;
+            font-size: 20px;
+            user-select: none;
+            z-index: 1;
+            animation: fall linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="card-container">
+        
+        <!-- Texto superior -->
+        <p class="top-text">
+            Y las flores amarillas? mi amor solo quería la excusa para darte flores porque me parece que te alegraria y así me siento al tenerte en mi vida, toda feliz de complacerte mi amorcito .
+        </p>
+
+        <!-- Cuadro central con la ilustración -->
+        <div class="image-box">
+            
+            <img src="cosito.jpg" alt="Flores amarillas para ti">
+        </div>
+
+        <!-- Textos inferiores -->
+        <p class="bottom-text">
+            Sé que es poquito mi amor pero quería darte algo, aunque sea mínimo, como esas florecitas. Es solo un detallito de mi para tu hermosho.
+        </p>
+        
+        <div class="heart-icon">❤️</div>
+
+        <p class="bottom-text">
+            Gracias por ser tan lindo conmigo y hacerme reír mientras jugamos o vemos cositas, cada vez me gusta más tu forma de ser y me encantaria seguir conociendote (ya eres mio pero se entiende).
+        </p>
+
+    </div>
+
+    <script>
+        function createFallingItem() {
+            const item = document.createElement('div');
+            item.classList.add('falling');
+            item.innerHTML = Math.random() > 0.5 ? '❤️' : '💕';
+            item.style.left = Math.random() * 100 + 'vw';
+            item.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(item);
+
+            setTimeout(() => {
+                item.remove();
+            }, 5000);
+        }
+        setInterval(createFallingItem, 400);
+    </script>
+
+</body>
+</html>
